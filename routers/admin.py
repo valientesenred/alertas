@@ -2,9 +2,9 @@ from fastapi import APIRouter, Depends, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func, cast, Date
 from datetime import date, timedelta
-from ..database import get_db
-from ..models import Usuaria, Alerta, EstadoUsuaria, EstadoAlerta
-from ..schemas import AlertaOut, AlertaUpdate, DashboardStats, UsuariaOut
+from database import get_db
+from models import Usuaria, Alerta, EstadoUsuaria, EstadoAlerta
+from schemas import AlertaOut, AlertaUpdate, DashboardStats, UsuariaOut
 
 router = APIRouter(prefix="/admin", tags=["admin"])
 

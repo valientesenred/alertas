@@ -12,9 +12,9 @@ Uso autónomo (desarrollo / testing):
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .database import init_db
-from .routers import webhook, usuarios, admin
-from .config import settings
+from database import init_db
+from routers import webhook, usuarios, admin
+from config import settings
 
 alertas_app = FastAPI(
     title="Módulo de Alertas — Seguridad de Género",

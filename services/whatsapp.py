@@ -1,5 +1,5 @@
 import httpx
-from ..config import settings
+from config import settings
 
 WA_BASE = f"https://graph.facebook.com/{settings.WA_API_VERSION}/{settings.WA_PHONE_NUMBER_ID}"
 

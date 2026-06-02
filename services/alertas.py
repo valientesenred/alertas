@@ -2,8 +2,8 @@ import math
 from datetime import datetime
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from ..models import Usuaria, Alerta, Ubicacion, EstadoAlerta, ContactoConfianza
-from . import whatsapp
+from models import Usuaria, Alerta, Ubicacion, EstadoAlerta, ContactoConfianza
+from services import whatsapp
 
 # CAIs de Cali con coordenadas (fuente: Datos Abiertos / Secretaría de Seguridad)
 CAIS_CALI = [

@@ -1,10 +1,10 @@
 import secrets
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, func
-from ..models import Usuaria, ContactoConfianza, Ubicacion, EstadoUsuaria
-from ..config import settings
-from . import whatsapp
-from .alertas import activar_alerta
+from models import Usuaria, ContactoConfianza, Ubicacion, EstadoUsuaria
+from config import settings
+from services import whatsapp
+from services.alertas import activar_alerta
 
 PASOS = {
     "inicio":      "inicio",

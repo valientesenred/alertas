@@ -2,10 +2,10 @@ from fastapi import APIRouter, Depends, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
-from ..database import get_db
-from ..models import Usuaria, Ubicacion, ContactoConfianza
-from ..schemas import UsuariaOut, ContactoCreate, ContactoOut, UbicacionCreate, TokenUbicacionOut
-from ..config import settings
+from database import get_db
+from models import Usuaria, Ubicacion, ContactoConfianza
+from schemas import UsuariaOut, ContactoCreate, ContactoOut, UbicacionCreate, TokenUbicacionOut
+from config import settings
 import secrets
 
 router = APIRouter(prefix="/usuarias", tags=["usuarias"])

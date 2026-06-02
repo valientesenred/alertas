@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Request, Response, Query, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
-from ..config import settings
-from ..database import get_db
-from ..models import Usuaria, Ubicacion
-from ..services.bot import procesar_mensaje
+from config import settings
+from database import get_db
+from models import Usuaria, Ubicacion
+from services.bot import procesar_mensaje
 from sqlalchemy import select
 
 router = APIRouter(prefix="/webhook", tags=["webhook"])
