@@ -4,6 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from models import Usuaria, Alerta, Ubicacion, EstadoAlerta, ContactoConfianza
 from services import whatsapp
+from services.sms import enviar_sms_alerta
 
 # CAIs de Cali con coordenadas (fuente: Datos Abiertos / Secretaría de Seguridad)
 CAIS_CALI = [
@@ -80,9 +81,18 @@ async def activar_alerta(db: AsyncSession, usuaria: Usuaria, ubicacion: Ubicacio
 
     count = 0
     for c in contactos:
+        # Enviar WhatsApp
         ok = await whatsapp.enviar_mensaje(c.numero_whatsapp, msg_contacto)
         if ok:
             count += 1
+        # Enviar SMS como canal de respaldo (no bloquea si falla)
+        await enviar_sms_alerta(
+            numero=c.numero_whatsapp,
+            nombre_usuaria=nombre_usuaria,
+            maps_link=maps_link,
+            cai_nombre=cai["nombre"] if cai else None,
+            hora=hora,
+        )
 
     alerta.contactos_notificados = count
     await db.flush()

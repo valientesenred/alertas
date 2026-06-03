@@ -20,6 +20,12 @@ class Settings(BaseSettings):
     BASE_URL: str = "http://localhost:8000"
     FRONTEND_URL: str = "http://localhost:5173"
 
+    # Twilio SMS
+    TWILIO_ACCOUNT_SID: str = ""
+    TWILIO_AUTH_TOKEN: str = ""
+    TWILIO_PHONE_NUMBER: str = ""  # Número Twilio con formato +1XXXXXXXXXX
+    SMS_ENABLED: bool = False       # Activar con True cuando Twilio esté configurado
+
     # Módulo
     MODULE_PREFIX: str = "/alertas"
     DEBUG: bool = False
